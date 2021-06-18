@@ -86,11 +86,6 @@ exec(
     console.log("Installing deps -- it might take a few minutes..");
     const devDeps = getDeps(packageJson.devDependencies);
     const deps = getDeps(packageJson.dependencies);
-    const keywords = getDeps(packageJson.keywords);
-    const author =  getDeps(packageJson.author);
-    const license =  getDeps(packageJson.license);
-    const browserslist =  getDeps(packageJson.browserslist);
-
     exec(
       `cd ${process.argv[2]} && git init && node -v && npm -v && npm i -D ${devDeps} && npm i -S ${deps}`,
       (npmErr, npmStdout, npmStderr) => {
